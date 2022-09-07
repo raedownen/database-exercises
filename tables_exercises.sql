@@ -4,6 +4,7 @@
 -- 5. Explore the employees table. What different data types are present on this table?
 -- SHOW TABLES;
 -- DESCRIBE employees;
+-- These are the different data types: emp_no, birth_date, first_name, last_name, gender, hire_date
 -- 6. Which table(s) do you think contain a numeric type column? (Write this question and your answer in a comment)
 --  salaries
 -- 7. Which table(s) do you think contain a string type column? (Write this question and your answer in a comment)
