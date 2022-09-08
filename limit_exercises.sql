@@ -6,6 +6,7 @@ USE employees;
 
 SELECT DISTINCT last_name FROM employees
 ORDER BY last_name DESC
+LIMIT 10
 -- 'Zykh','Zyda' 'Zwicker''Zweizig''Zumaque''Zultner''Zucker''Zuberek''Zschoche''Zongker'
 
 -- 3. Find all previous or current employees hired in the 90s and born on Christmas. 
@@ -36,11 +37,13 @@ FROM employees
 WHERE birth_date like '19%%-12-25'
 	AND hire_date like '199%-%%-%%'
 ORDER BY hire_date
-LIMIT 5 OFFSET 50
-/*'231580','1957-12-25','Christophe','Baca','F','1990-08-11'
-'275621','1961-12-25','Moie','Birsak','M','1990-08-11'
-'494492','1957-12-25','Chikako','Ibel','F','1990-08-12'
-'48396','1955-12-25','Shounak','Jansen','M','1990-08-13'
-'17351','1961-12-25','Zhigen','Boissier','M','1990-08-18' */
+LIMIT 5 OFFSET 45
+/*''463558','1963-12-25','Pranay','Narwekar','F','1990-07-18'
+'444269','1963-12-25','Marjo','Farrow','F','1990-07-18'
+'291662','1962-12-25','Ennio','Karcich','M','1990-08-05'
+'413687','1954-12-25','Dines','Lubachevsky','F','1990-08-06'
+'416525','1952-12-25','Ipke','Fontan','M','1990-08-06'
+ */
 
 -- The relationship is page 1 = 1-5 results, 2=6-10, 3=11-15, 4= 16-20, 5= 21-25, 6= 26-30, 7= 31-35, 8= 36-40, 9= 41-45, 10= 46-50
+-- (Page -1) * LIMIT + OFFSET
