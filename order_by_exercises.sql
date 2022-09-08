@@ -63,7 +63,8 @@ SELECT *
 FROM employees
 WHERE birth_date like '19%%-12-25'
 	AND hire_date like '199%-%%-%%'
-ORDER BY hire_date DESC
+ORDER BY birth_date, hire_date DESC
 -- 362 returned
 -- '33936','1952-12-25','Khun','Bernini','M','1999-08-31'
--- '243297', '1962-12-25', 'Alselm', 'Cappello', 'F', '1990-01-01'
+-- '412745', '1964-12-25', 'Douadi', 'Pettis', 'M', '1990-05-04'
+
