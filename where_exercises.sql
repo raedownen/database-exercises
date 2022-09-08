@@ -97,7 +97,7 @@ USE employees;
 
 SELECT *
 FROM employees
-WHERE last_name LIKE 'q%' OR last_name LIKE '%q%' OR last_name LIKE '%q';
+WHERE last_name LIKE '%q%'
 -- returned 1873 rows
 
 -- 12. Find all current or previous employees with a 'q' in their last name but not 'qu'. How many employees are found?
