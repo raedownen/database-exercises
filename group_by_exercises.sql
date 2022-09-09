@@ -20,25 +20,28 @@ SELECT last_name, first_name
 FROM employees
 WHERE last_name LIKE 'e%e'
 GROUP BY last_name, first_name
+ORDER BY last_name, first_name
 
 --5. Write a query to find the unique last names with a 'q' but not 'qu'. Include those names in a comment in your sql code.
 USE employees;
 
 SELECT last_name
 FROM employees
-WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%'
+WHERE last_name LIKE '%q%' 
+    AND last_name NOT LIKE '%qu%'
 GROUP BY last_name
 
-'Chleq'
-'Lindqvist'
-'Qiwen'
+-- 'Chleq'
+-- 'Lindqvist'
+-- 'Qiwen'
 
 -- 6. Add a COUNT() to your results (the query above) to find the number of employees with the same last name.
 USE employees;
 
 SELECT last_name, COUNT(*)
 FROM employees
-WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%'
+WHERE last_name LIKE '%q%' 
+    AND last_name NOT LIKE '%qu%'
 GROUP BY last_name
 
 -- 7. Find all all employees with first names 'Irena', 'Vidya', or 'Maya'. Use COUNT(*) and GROUP BY to find the number of employees for each gender with those names.
