@@ -5,7 +5,7 @@ USE employees;
 
 SELECT hire_date
 FROM employees
-WHERE emp_no = '101010';
+WHERE emp_no = 101010;
 
 SELECT *
 FROM employees AS e
@@ -14,7 +14,7 @@ WHERE to_date > CURDATE()
 AND hire_date = (
 					SELECT hire_date
 					FROM employees
-					WHERE emp_no = '101010'
+					WHERE emp_no = 101010
 					);
 
 
@@ -43,12 +43,12 @@ USE employees;
 
 SELECT COUNT(*)
 FROM employees AS e
-WHERE emp_no IN (
+WHERE emp_no NOT IN (
 					SELECT emp_no
                     FROM dept_emp
-                    WHERE to_date < CURDATE()
-				)
-/* 85108*/
+                    WHERE to_date NOT LIKE '9999%'
+				);
+/* 59900*/
 
 /*4. Find all the current department managers that are female. 
 List their names in a comment in your code.*/
@@ -69,7 +69,7 @@ historical average salary.*/
 USE employees;
 
 SELECT AVG(salary) AS 'Historical Average'
- FROM salaries;
+FROM salaries;
 
 SELECT CONCAT(e.first_name, ' ', e. last_name)
 FROM employees AS e
@@ -89,7 +89,6 @@ Add a comment above the query showing the number of rows returned.
 You will use this number (or the query that produced it) in other, larger queries.*/
 
 
-/*BONUS
-1. Find all the department names that currently have female managers.*/
+/*1. Find all the department names that currently have female managers.*/
 /*2. Find the first and last name of the employee with the highest salary.*/
 /*3. Find the department name that the employee with the highest salary works in.*/
