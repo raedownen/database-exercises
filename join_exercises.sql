@@ -31,6 +31,31 @@ Use count and the appropriate join type to get a list of roles along with the nu
 Hint: You will also need to use group by in the query.
 USE join_example_db; */
 
+SELECT
+    -- rename roles.name column to role_name for clarity.
+	roles.name AS role_name,
+    
+    -- I want to count the employees (users.name) for each role_name.
+    -- my metric
+	COUNT(users.name) AS number_of_employees
+FROM users
+RIGHT JOIN roles ON users.role_id = roles.id
+
+-- my dimension (rows)
+GROUP BY role_name;
+
+/*
+role_name   number_of_employees
+_________________________________
+admin	    1
+author	    1
+commenter	0
+reviewer	2
+*/
+
+-- 1. Use the employees database.
+
+USE employees;
 
 
 /* .2 Using the example in the Associative Table Joins section as a guide, 
