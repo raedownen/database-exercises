@@ -92,3 +92,45 @@ You will use this number (or the query that produced it) in other, larger querie
 /*1. Find all the department names that currently have female managers.*/
 /*2. Find the first and last name of the employee with the highest salary.*/
 /*3. Find the department name that the employee with the highest salary works in.*/
+-- # what is the max current salary:
+select max(salary) from salaries where to_date > now();
+
+-- # what is the 1 std for current salary;
+select stddev(salary) from salaries where to_date > now();
+
+-- Count of current salaries > (Max-1 std). (count = 83)
+select count(*)
+from salaries
+where to_date > now()
+and salary > (
+(select max(salary) from salaries where to_date > now()) - 
+(select std(salary) from salaries where to_date > now())
+);
+
+-- Denominator, count of all current salaries (240,124)
+select count(*)
+from salaries 
+where to_date > now();
+
+
+-- What percentage of all salaries is this?
+-- SELECT (Numerator)/ (Denominator)
+select((select count(*)
+from salaries
+where to_date > now()
+and salary > (
+(select max(salary) from salaries where to_date > now()) - 
+(select std(salary) from salaries where to_date > now())
+))/(select count(*)
+from salaries 
+where to_date > now())) * 100 as "percentage of salaries within 1 Stdev of Max";
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
